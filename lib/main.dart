@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:material_color_utilities/material_color_utilities.dart';
+import 'package:simpleui/theme/theme.dart';
 import 'page/home/page.dart';
 
 void main() {
@@ -13,23 +13,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      theme: const CupertinoThemeData(
-        applyThemeToAll: true,
-        brightness: Brightness.light,
-        primaryColor: Colors.amber,
-        primaryContrastingColor: Colors.amberAccent,
-        barBackgroundColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: CupertinoTextThemeData(
-          primaryColor: Colors.black,
-          textStyle: TextStyle(
-            color: Colors.black87,
-          ),
-        ),
+      themeMode: ThemeMode.dark,
+      theme: ThemeData(
+        colorScheme: MaterialTheme.lightScheme().toColorScheme(),
       ),
-      home: HomePage(),
+      darkTheme: ThemeData(
+        colorScheme: MaterialTheme.darkScheme().toColorScheme(),
+      ),
+      home: const HomePage(),
     );
   }
 }
